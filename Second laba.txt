@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct my_own_set{
+    int sz = 0,elems[1000];
+};
+my_own_set f,s,inter,uni;
+void add(my_own_set& a,int t){
+    int corr=0;
+    for(int i=1;i<=a.sz;i++)
+    if(a.elems[i]==t){corr=1;break;}
+    if(corr==0){a.sz++;a.elems[a.sz]=t;}
+}
+int count_elem(my_own_set& a,int t){
+    for(int i=1;i<=a.sz;i++)
+        if(a.elems[i]==t)return 1;
+    return 0;
+}
+int main(){
+int a,n;
+cout<<"Enter size of first set"<<endl;
+cin>>n;
+cout<<"Enter elements of first set"<<endl;
+for(int i=1;i<=n;i++){
+    cin>>a;
+    add(uni,a);
+    add(f,a);
+}
+cout<<"Enter size of second set"<<endl;
+cin>>n;
+cout<<"Enter elements of second set"<<endl;
+for(int i=1;i<=n;i++){
+    cin>>a;
+    add(uni,a);
+    add(s,a);
+    if(count_elem(f,a)==1)add(inter,a);
+}
+cout<<"Elements of intersection"<<endl;
+for(int i=1;i<=inter.sz;i++)
+    cout<<inter.elems[i]<<' ';
+cout<<endl<<"Power of intersection "<<inter.sz<<endl;
+cout<<"Elements of union"<<endl;
+for(int i=1;i<=uni.sz;i++)
+    cout<<uni.elems[i]<<' ';
+cout<<endl<<"Power of union "<<uni.sz<<endl;
+
+}
+
