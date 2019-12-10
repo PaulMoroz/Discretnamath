@@ -16,7 +16,7 @@ int main() {
     cout<<"Enter amount of tops and edges of graph\n";
     cin>>n>>m;
     cout<<"Enter number of start top,end top and edge weight between them\n";
-    for(int i=1;i<=20;i++)
+    for(int i=0;i<=13;i++)
         ways[i] = INT_MAX;
     for(int i = 1;i<=m;i++){
         cin>>s>>f>>val;
